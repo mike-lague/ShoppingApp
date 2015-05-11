@@ -3,8 +3,24 @@ $(document).ready(function() {
   $('#newitembutton').click(function() {
   	addnewitem($("#newitem"));
   });
-  setrowbehavior();
-  $('#newitem').val("default input");
+
+  $('#shopping-table').on("mouseenter", ".shopping-row", (function() {
+    setrowtext(this, checkmark, deletemark);
+  }));
+
+  $('#shopping-table').on("mouseleave", ".shopping-row", (function() {
+  	setrowtext(this, "", "");
+  }));
+
+  $('#shopping-table').on( "click", ".xmark", (function() {
+  	$(this).closest("tr").remove();
+  }));
+
+  $('#shopping-table').on("click", ".check", (function() {
+  	//console.log('clicked checkmark');
+  	$(this).closest("tr").find(".shopping-item").toggleClass("bought-item");
+  }));
+  
 });
 
 var checkmark = "&#x2714";
@@ -23,24 +39,4 @@ function addnewitem(input) {
 				'</tr>' ;
 	$(".shopping-table").append(htmltext);
 	$(input).val("");
-	setrowbehavior();
-}
-
-function setrowbehavior () {
-  $('.shopping-row').mouseenter(function() {
-    setrowtext(this, checkmark, deletemark);
-  })
-  .mouseleave(function() {
-  	setrowtext(this, "", "");
-  }
-  );
-  
-  $('.xmark').click(function() {
-  	$(this).closest("tr").remove();
-  });
-
-  $('.check').click(function() {
-  	console.log('clicked checkmark');
-  	$(this).closest("tr").find(".shopping-item").toggleClass("bought-item");
-  })
 }

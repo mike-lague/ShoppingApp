@@ -23,9 +23,18 @@
 .shopping-row {
 	border: solid lightgray;
 	border-width: 1px 0;
-	background-color: rgb(219, 235, 240); // very light blue
 }
 
 .shopping-row:nth-child(even) {
 	background-color: white;
+}
+.shopping-row:nth-child(odd) {
+	background-color: rgb(219, 235, 240); // very light blue
+}
+
+.help {
+	margin-top: 2em;
+	padding-left: 1em;
+	border: solid;
+	border-width: 1px;
 }
