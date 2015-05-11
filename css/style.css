@@ -1,0 +1,31 @@
+.check, .xmark {
+	min-width: 3em;
+	color: orange;
+	text-align: center;
+}
+.shopping-table {
+	font-family: cursive;
+	font-size: 18px;
+	border: solid lightgray;
+	border-width: 1px;
+	border-collapse: collapse;
+	margin-bottom: 1em;
+}
+.shopping-item, .check, .xmark {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.bought-item {
+	color: rgb(74, 72, 72);
+	font-style: italic;
+	text-decoration: line-through;
+}
+.shopping-row {
+	border: solid lightgray;
+	border-width: 1px 0;
+	background-color: rgb(219, 235, 240); // very light blue
+}
+
+.shopping-row:nth-child(even) {
+	background-color: white;
+}
