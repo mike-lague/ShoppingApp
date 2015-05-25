@@ -1,7 +1,14 @@
 $(document).ready(function() {
   
-  $('#newitembutton').click(function() {
-  	addnewitem($("#newitem"));
+  $('#newitembutton').click(function(event) {
+  	addnewitem($("#newitem"), event);
+  });
+
+  $('#newitem').keyup(function(event) {
+  	if (event.which == 13) {
+  		// console.log('enter is let go'); 
+  		addnewitem($("#newitem"), event);	
+  	}
   });
 
   $('#shopping-table').on("mouseenter", ".shopping-row", (function() {
@@ -20,6 +27,8 @@ $(document).ready(function() {
   	//console.log('clicked checkmark');
   	$(this).closest("tr").find(".shopping-item").toggleClass("bought-item");
   }));
+
+
   
 });
 
@@ -31,7 +40,7 @@ function setrowtext(row, checktext, xtext) {
 	$(row).find(".xmark").html(xtext);
 }
 
-function addnewitem(input) {
+function addnewitem(input, event) {
 	htmltext = '<tr class="shopping-row">' +
 				'<td class="check"/>' +
 				'<td class="shopping-item">' + $(input).val() + '</td>' +
@@ -39,4 +48,6 @@ function addnewitem(input) {
 				'</tr>' ;
 	$(".shopping-table").append(htmltext);
 	$(input).val("");
+	/*$(input).focus();
+	alert("x:"+event.pageX+"y:"+event.pageY);*/
 }

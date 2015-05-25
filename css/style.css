@@ -2,6 +2,7 @@
 	min-width: 3em;
 	color: orange;
 	text-align: center;
+	cursor: pointer;
 }
 .shopping-table {
 	font-family: cursive;
@@ -9,11 +10,25 @@
 	border: solid lightgray;
 	border-width: 1px;
 	border-collapse: collapse;
-	margin-bottom: 1em;
+	/*margin-bottom: 1em;*/
 }
+
+.shopping-table, .input {
+	margin: 1em auto 1em auto;
+	width: 75%;
+}
+
+.input {
+	font-family: sans-serif;	
+}
+
 .shopping-item, .check, .xmark {
 	padding-left: 1em;
 	padding-right: 1em;
+	
+}
+.shopping-item {
+	width: 40em;
 }
 .bought-item {
 	color: rgb(74, 72, 72);
@@ -33,6 +48,7 @@
 }
 
 .help {
+	display: none;
 	margin-top: 2em;
 	padding-left: 1em;
 	border: solid;
